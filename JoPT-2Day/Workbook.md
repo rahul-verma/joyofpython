@@ -12,6 +12,13 @@ Python is losely typed language. Type of a variable (referred to as a name) is e
 >>>b = True
 ```
 
+Names in Python mostyle follow these rules (for variables, functions/methods, modules, packages - i.e. most of the names):
+  - Contain letters, numbers and underscore ( _ )
+  - Can not start with a number
+  - All letters in lower case (except global vars, constants etc where all uppercase letters are used.)
+  - Multiple words separated by an underscore _
+  - Underscore at the beginning of the name has special meaning. More on this later.
+
 As the left hand side in the assignment is just a name without a type of its own, it can be assigned to an object of another type. Remember that this is, in general, not suggested. There are specific situations where it comes handy, which we would cover in the workshop.
 
 ```python
@@ -162,6 +169,21 @@ Here, we are calling the 'append' method of a list object to add another element
 ```
 
 #### Creating Basic Functions
+
+Functions in Python are defined using the keyword 'def'.
+
+```python
+def function_name(arg1, arg2):
+  # Function body
+  return object1
+```
+
+A function can take 0 or more arguments. The names 'arg1', 'arg2' etc are available as names within the function body. The function can return one or more objects. If no return statement is supplied, then it returns None (which is eqivalent of NULL in other languages)
+
+Once defined, you can call this function just like built-in functions.
+```python
+ret_val = function_name(1, 'testing')
+```
 
 #### Conditional Control Structures
 
