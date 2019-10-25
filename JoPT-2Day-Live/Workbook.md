@@ -396,6 +396,8 @@ Create a MindMaster Game in `ex06_mindmaster.py`. You can treat it as the main s
 2. `strip()` method of string removes the extraneous spaces at head as well as tail.
 3. You can generate a random integer between a range by using `randint(x,y)` function in `random` module.
 
+#### Walk-through of a Sample Solution
+
 ### 2. Basic Web Service Requests and File Handling
 
 ### Installing PyPi packages using pip
@@ -424,9 +426,16 @@ json = response.json()
 ```
 
 ### Exercise
+Code should be implemented in `ex07.py`.
+
 Send a GET request to the url `https://jsonplaceholder.typicode.com/posts`. From the response, print the title of the first 10 post records.
 
 #### Hands-On: Reading/Writing Delimited Files
+
+1. project_utils
+2. file_utils
+3. data_utils - string and zipping
+
 Send a GET request to the url 'https://jsonplaceholder.typicode.com/users'. From the response remove the 'address' and 'company' attributes of each user. Write the data for the first 10 users in a CSV file. Read the data from this generated CSV file and create list of user objects, where each user object is a dictionary.
 
 For this, hands-on, we'll use various new Python constructs which have been included here for your reference.
@@ -477,26 +486,30 @@ os.path.realpath # to handle relative path extracted in combination with __file_
 os.path.join  # to create a full path from parts by using a cross-platform path separator
 ```
 
-#### Reading/Writing JSON Files
+#### Long Exercise: Reading/Writing Delimited and JSON Files
 
-#### Reading/Writing XML Files
+#### Demo: Reading/Writing XML Files
 
-#### Simple SOAP POST Request
+#### Demo: Simple SOAP POST Request
 
 ### 3. Handling Child Processes
 
-#### Parent in Blocking Mode using subprocess
+#### Hands-On Parent in Blocking Mode using subprocess
 
-#### Parent in Non-Blocking Mode using pexpect
+#### Demo:  Parent in Non-Blocking Mode using pexpect
 
-### 4. Basics of Python unittest
+#### Long Exercise - Automating Chrome using requests, JSON Wire Protocol and chromedriver
 
-### Understanding Test Class, Test Methods, Fixtures and Assertions
+#### Walk-through of a Sample Solution
 
-### 5. Foundations of Selenium WebDriver
+### 4. Foundations of Selenium WebDriver
 
 #### Automation using JSON Wire Protocol and Requests
 
-#### Basic Raw Scripting using Python Selenium Bindings
+#### Hands-On: Basic Raw Scripting using Python Selenium Bindings
 
-#### Steps towards a basic framework structure
+#### Python unittest - Test Class, Test Methods, Fixtures and Assertions
+
+#### Long Exercise: Use unittest to implement valid and invalid login scenario.
+
+#### Walk-through of a Sample Solution
