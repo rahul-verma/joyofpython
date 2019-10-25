@@ -178,6 +178,10 @@ def function_name(arg1, arg2):
   return object1
 ```
 
+The critical part to notice is that Python marks blocks using indentation unlike curly braces or begin & end markers in other languages. In other languages, it is suggested that you indent a child block for readability. Python in this matter imposes it on you and the code does not run without proper indentation. Depending on your school of thought, you might like or disklike this.
+
+You can indent using a tab or a fixed number of spaces. No agreement exists on which is better.
+
 A function can take 0 or more arguments. The names 'arg1', 'arg2' etc are available as names within the function body. The function can return one or more objects. If no return statement is supplied, then it returns None (which is eqivalent of NULL in other languages)
 
 Once defined, you can call this function just like built-in functions.
@@ -187,7 +191,53 @@ ret_val = function_name(1, 'testing')
 
 #### Conditional Control Structures
 
+Python supports code blocks that get executed when a condition is True or False.
+
+It uses the familiar 'if' and 'else' keywords. 
+
+For chaining of conditions, i.e. the 'else if' situation, rather than two separate keywords clubbed, Python has a special keyword - 'elif'. 
+
+You can nest conditional blocks as well. Just make sure of the correct indentation level.
+```python
+
+if condition1:
+  #path1
+ elif condition2:
+  #path2
+ else:
+    if nested_condition:
+      #path3
+    else:
+      #path4
+```
+
 #### Exception Raising and Handling
+
+Error handling based code usually relies on preventive checking of potential problems that could take place.
+
+Exception handling on the other end, usually lets the problem take place and handles it at appropriate layers. This is a common found feature in all OOP languages.
+
+Similarly rather than returning an error code, one usually raises/throws an exception object.
+
+Python supports a 4 block exception handling. Out of these, one tends to use only the try and except blocks most of the times.
+
+```python
+try:
+  #try this block
+except ExceptionName1 as e:
+  # do this if exception of type ExceptionName1 was raised
+except ExceptionName2 as e:
+  # do this if exception of type ExceptionName2 was raised
+else:
+  # do this if no excpetion occured
+finally:
+  # do this always
+```
+
+You can raise an exception in Python by creating an exception object. Python does not use the 'new' keyword like other languages, so creation of an object looks like a function call.
+```python
+raise Exception("This didn't go well")
+```
 
 #### Loops
 
