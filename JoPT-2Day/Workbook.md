@@ -397,9 +397,84 @@ Create a MindMaster Game.
 
 ### 2. Basic Web Service Requests and File Handling
 
+### Installing PyPi packages using pip
+
+Beyond the packages that come pre-installed, you can also intall packages of choice from thousands of packages available on Python Package Index (PyPi). Run the following command from terminal:
+
+```pip install requests```
+
+Here we are installing `requests` module which is the most popular Python library for interacting with web services.
+
 #### Simple GET Request
 
-#### Reading/Writing Delimited Files
+Web services mostly work on HTTP and the most common HTTP methods used by web services are GET, POST, PUT, DELETE.
+
+A GET request can be sent easily:
+
+```python
+import requests
+response = requests.get(<url>)
+```
+
+If you know that the response contains JSON response, you can convert get it as a Python dictionary:
+
+```python
+json = response.json()
+```
+
+### Exercise
+Send a GET request to the url `https://jsonplaceholder.typicode.com/posts`. From the response, print the title of the first 10 post records.
+
+#### Hands-On: Reading/Writing Delimited Files
+Send a GET request to the url 'https://jsonplaceholder.typicode.com/users'. From the response remove the 'address' and 'company' attributes of each user. Write the data for the first 10 users in a CSV file. Read the data from this generated CSV file and create list of user objects, where each user object is a dictionary.
+
+For this, hands-on, we'll use various new Python constructs which have been included here for your reference.
+
+Following are basic file reading related Python calls:
+
+```python
+f = open("<file_path>", "r") # Opens the file and returns a file object
+f.read() # Reads all the content
+f.readline() # Reads one line
+f.readlines() # Returns an object which can be iterated over to get all lines
+f.close() # closes the file handle
+```
+
+Following calls can be used to create and write to a file:
+```python
+f = open("<file_path>", "w") # Opens the file and returns a file object
+f.write("<string>") # Write a string
+f.writelines("<seq of lines>") # Iterates over the sequence and writes line by line
+f.close() # closes the file handle
+```
+
+For automatically closing a file when the job is done, you can also use the `with` block:
+
+```python
+with <open_command> as <file_object>:
+  # operate on the file
+```
+
+While handling CSV files (reading/writing), following string methods come handy:
+```python
+"a,b,c".split(",") . # Can use any delimiter
+",".join(['a', 'b', 'c'])
+```
+
+Some other built-in Python functions are interest are `dict` and `zip`:
+```python
+zip([1,2], [3,4]) # returns ((1,3),(2,4))
+dict((1,3),(2,4)) # returns {1:3, 2:4}
+```
+
+We will make use of various facilities of os module:
+```python
+import os
+os.linesep # for cross-platform line separator
+os.path.dirname # to extract directory part from a file path
+os.path.realpath # to handle relative path extracted in combination with __file__ magic attribute
+os.path.join  # to create a full path from parts by using a cross-platform path separator
+```
 
 #### Reading/Writing JSON Files
 
