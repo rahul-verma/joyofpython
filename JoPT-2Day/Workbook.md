@@ -202,13 +202,13 @@ You can nest conditional blocks as well. Just make sure of the correct indentati
 
 if condition1:
   #path1
- elif condition2:
+elif condition2:
   #path2
- else:
-    if nested_condition:
-      #path3
-    else:
-      #path4
+else:
+  if nested_condition:
+     #path3
+   else:
+     #path4
 ```
 
 #### Exception Raising and Handling
@@ -241,7 +241,47 @@ raise Exception("This didn't go well")
 
 #### Loops
 
+The most commonly used construct in Python is proably the one where you iterate on a container.
+
+```python
+for element in elements:
+  print(element)
+```
+
+Tip: Name lists as a plural name. It goes a long way in the readability of your for loops on lists.
+
+Python's built-in function range(limit) generates numbers from 0 till limit-1. Hence it is a good way to generate indices, esp when you are iterating over a list:
+```python
+for index in range(len(elements)):
+  print(elements[index])
+```
+
+There is an obvious impact on readability. One can use enumerate() call instead.
+
+```python
+for index, element in enumerate(elements):
+  print(index, element)
+```
+
+Another style of loop which can be used in Python is a while loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
+
+```python
+while condition:
+  # do this
+```
+
+Here, the loop runs as long as the condition evaluates to True.
+
 #### Taking Input from Console
+
+You can take input from console using the built-in input() method. Remember that it always returns a string, so you might have to use the type conversion functions before using the value.
+
+Also, make wise use of the prompt argument.
+
+```python
+age = input("What's your age? ")
+print(int(age))
+```
 
 ### 2. Basic Web Service Requests and File Handling
 
@@ -272,7 +312,3 @@ raise Exception("This didn't go well")
 #### Basic Raw Scripting using Python Selenium Bindings
 
 #### Steps towards a basic framework structure
-
-
-
-
