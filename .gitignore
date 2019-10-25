@@ -39,9 +39,6 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 
-*.iml
-**/output/**
-**drivers/**
 .coverage
 .coverage.*
 .cache
@@ -107,4 +104,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+*.iml
 **/.idea/**
+**/output/**
+**/drivers/**
