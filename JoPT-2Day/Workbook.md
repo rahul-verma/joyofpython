@@ -211,35 +211,25 @@ else:
      #path4
 ```
 
-#### Exception Raising and Handling
+#### Exercise
+Create a function with name 'calc_grade_1' which takes an score (number) as an argument and returns grade as string as per the following rules:
+  - 'C' grade if score is 40 or lesser
+  - 'B' grade if score is greater than 40 but up to 80
+  - 'A' grade for score greater than 80
 
-Error handling based code usually relies on preventive checking of potential problems that could take place.
+#### Exception Raising
 
-Exception handling on the other end, usually lets the problem take place and handles it at appropriate layers. This is a common found feature in all OOP languages.
-
-Similarly rather than returning an error code, one usually raises/throws an exception object.
-
-Python supports a 4 block exception handling. Out of these, one tends to use only the try and except blocks most of the times.
-
-```python
-try:
-  #try this block
-except ExceptionName1 as e:
-  # do this if exception of type ExceptionName1 was raised
-except ExceptionName2 as e:
-  # do this if exception of type ExceptionName2 was raised
-else:
-  # do this if no excpetion occured
-finally:
-  # do this always
-```
+Rather than returning an error code, in Python you usually raise/throw an exception object.
 
 You can raise an exception in Python by creating an exception object. Python does not use the 'new' keyword like other languages, so creation of an object looks like a function call.
 ```python
 raise Exception("This didn't go well")
 ```
 
-#### Loops
+#### Exercise
+Improve the 'calc_grade_1' function ad re-write it as 'calc_grade_2' to throw an exception when a non-number object is provided.
+
+#### for Loop
 
 The most commonly used construct in Python is proably the one where you iterate on a container.
 
@@ -263,14 +253,8 @@ for index, element in enumerate(elements):
   print(index, element)
 ```
 
-Another style of loop which can be used in Python is a while loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
-
-```python
-while condition:
-  # do this
-```
-
-Here, the loop runs as long as the condition evaluates to True.
+#### Exercise
+Write a function which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling calc_grade_2 function.
 
 #### Taking Input from Console
 
@@ -282,6 +266,46 @@ Also, make wise use of the prompt argument.
 age = input("What's your age? ")
 print(int(age))
 ```
+
+#### Exercise
+Write a function with name 'calc_grade_for_console_input' which takes a number from console as an input and prints its grade.
+
+#### while Loop
+Another style of loop which can be used in Python is a while loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
+
+```python
+while condition:
+  # do this
+```
+
+Here, the loop runs as long as the condition evaluates to True.
+
+#### Exercise
+Write a function with name 'calc_grades_for_console_input_1' which uses while loop to take numbers as inputs from console and prints the grade using calc_grade_for_console_input function call. The program should exit when user enters 'x' in lower or upper case.
+
+
+#### Exception Handling
+Python supports a 4 block exception handling. Out of these, one tends to use only the try and except blocks most of the times.
+
+Error handling based code usually relies on preventive checking of potential problems that could take place.
+
+Exception handling on the other end, usually lets the problem take place and handles it at appropriate layers. This is a common found feature in all OOP languages.
+
+```python
+try:
+  #try this block
+except ExceptionName1 as e:
+  # do this if exception of type ExceptionName1 was raised
+except ExceptionName2 as e:
+  # do this if exception of type ExceptionName2 was raised
+else:
+  # do this if no excpetion occured
+finally:
+  # do this always
+```
+
+#### Exercise
+Re-write the function 'calc_grades_for_console_input_1' as 'calc_grades_for_console_input_2' to include exception handling for the case where user enters a non-number. The goal is to let the program continue in case of invalid input by informing the user that it was an invalid input.
 
 ### 2. Basic Web Service Requests and File Handling
 
