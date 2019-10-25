@@ -216,7 +216,7 @@ Create a function with name `calc_grade_1` which takes an score (number) as an a
   - 'B' grade if score is greater than 40 but up to 80
   - 'A' grade for score greater than 80
 
-#### Exception Raising
+#### Raising an Exception
 
 Rather than returning an error code, in Python you usually raise/throw an exception object.
 
@@ -231,7 +231,7 @@ raise Exception("This didn't go well")
 #### Exercise
 Improve the `calc_grade_1` function and re-write it as `calc_grade_2` to throw an exception when a non-number object is provided.
 
-#### for Loop
+#### `for` Loop
 
 The most commonly used construct in Python is proably the one where you iterate on a container using a `for` loop:
 
@@ -273,7 +273,7 @@ print(int(age))
 #### Exercise
 Write a function with name `calc_grade_for_console_input` which takes a number from console as an input and prints its grade.
 
-#### while Loop
+#### `while` Loop
 Another style of loop which can be used in Python is a `while` loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
 
 ```python
@@ -288,11 +288,11 @@ Write a function with name `calc_grades_for_console_input_1` which uses `while` 
 
 
 #### Exception Handling
-Python supports a 4 block exception handling. Out of these, one tends to use only the try and except blocks most of the times.
-
 Error handling based code usually relies on preventive checking of potential problems that could take place.
 
 Exception handling on the other end, usually lets the problem take place and handles it at appropriate layers. This is a common found feature in all OOP languages.
+
+Python supports a 4 block exception handling. Out of these, one tends to use only the `try` and `except` blocks most of the times.
 
 ```python
 try:
@@ -324,14 +324,14 @@ Create a MindMaster Game.
 
 ##### Technical Requirements
 1. Whether the number contains duplicate digits should be configurable.
-2. User .format() for string formatting instead of string concatenation using +.
+2. User `format()` for string formatting instead of string concatenation using +.
 3. Use a dictionary for storing number of games won and lost.
 4. Handle and process exception for a non-int entry. It would be counted as an attempt.
 
 ##### Hints
 1. When you convert a string to a list, each character is an item in the list.
-2. strip() method of string removes the extraneous spaces at head as well as tail.
-3. You can generate a random integer between a range by using randint(x,y) function in random module.
+2. `strip()` method of string removes the extraneous spaces at head as well as tail.
+3. You can generate a random integer between a range by using `randint(x,y)` function in `random` module.
 
 ### 2. Basic Web Service Requests and File Handling
 
