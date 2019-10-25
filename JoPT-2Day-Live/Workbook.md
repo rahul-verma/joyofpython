@@ -198,7 +198,7 @@ Python has other `import` variants some of which we will explore as the workshop
 #### Creating Python Project and Running Our First Script
 We are using PyCharm as the default IDE here, but you can use a Python IDE that you are comfortable with).
   - Create Python Project
-  - In the project root, create a python file named `ex01.py`
+  - Copy all the contents of this directory in GitHub repository in the root directory of the project.
   
 In the `ex01.py` script, add the following:
 
@@ -262,21 +262,16 @@ In the script `ex01.py`, create a function with name `calc_grade` which takes an
 #### Exercise: Creating a Package and Module
 Multiple modules can reside inside a single `package`. A `package` is a directory/folder containing an `__init__.py` file.
 
-In the Project,
-  - Create `jopt` package.
-  - Inside the `jopt` package, create a Python file with the name `basics.py`. This is the module file.
-  - In the project root, create a python file named `ex02.py`
-  - Copy the function definition of `calc_grade` to `basics.py`
+In the project, you can see that there is a `jopt` package already created. In this package, various modules are present. One of them is `basics.py` which contains skeletons of various functions that you are going to implement one by one.
 
-In the `ex02.py` file, add the following contents and execute:
+  - Copy the contents of `calc_grade` function that you have created to corresponding function in `basics.py`
+  - In the `ex02.py` file, add the following contents and execute:
 
 ```python
 from jopt.basics import *
 grade = calc_grade(43)
 print(grade)
 ```
-
-Until further told, all functions that we create would be coded in the `basics.py`. We will call the functions defined in this module in the `ex02.py` file. The importing of module can be done using `from jopt.basics import *` which essentially imports all functions available in the module.
 
 #### Raising an Exception
 
@@ -291,7 +286,7 @@ raise Exception("This didn't go well")
 ```
 
 #### Exercise
-Improve the `calc_grade` function to throw an exception when a non-number object is provided.
+Improve the `calc_grade` function to throw an exception when a non-number object is provided. Run the ex02.py script by providing non-numbers to evaluate the behavior.
 
 #### `for` Loop
 
@@ -319,7 +314,9 @@ for index, element in enumerate(elements):
 ```
 
 #### Exercise
-Write a function `calc_grades` which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling `calc_grade` function.
+Implement the function `calc_grades` which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling `calc_grade` function.
+
+Call the function in ex03.py.
 
 #### Taking Input from Console
 
@@ -333,7 +330,9 @@ print(int(age))
 ```
 
 #### Exercise
-Write a function with name `calc_grade_for_console_input` which takes a number from console as an input and prints its grade.
+Implement the function with name `calc_grade_for_console_input` which takes a number from console as an input and prints its grade.
+
+Call the function in ex04.py.
 
 #### `while` Loop
 Another style of loop which can be used in Python is a `while` loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
@@ -346,8 +345,9 @@ while condition:
 Here, the loop runs as long as the condition evaluates to True.
 
 #### Exercise
-Write a function with name `calc_grades_for_console_input_1` which uses `while` loop to take numbers as inputs from console and prints the grade using `calc_grade_for_console_input` function call. The program should exit when user enters 'x' in lower or upper case.
+Implement the function with name `calc_grades_for_console_input` which uses `while` loop to take numbers as inputs from console and prints the grade using `calc_grade_for_console_input` function call. The program should exit when user enters 'x' in lower or upper case.
 
+Call the function in ex05.py
 
 #### Exception Handling
 Error handling based code usually relies on preventive checking of potential problems that could take place.
@@ -370,11 +370,12 @@ finally:
 ```
 
 #### Exercise
-Re-write the function `calc_grades_for_console_input_1` as `calc_grades_for_console_input_2` to include exception handling for the case where user enters a non-number. The goal is to let the program continue in case of invalid input by informing the user that it was an invalid input.
+Modify the function `calc_grades_for_console_input` to include exception handling for the case where user enters a non-number. The goal is to let the program continue in case of invalid input by informing the user that it was an invalid input.
+
+Call the function in ex05.py
 
 #### Long Exercise - Put It All Together - The MindMaster Game
-
-Create a MindMaster Game.
+Create a MindMaster Game in `ex06_mindmaster.py`. You can treat it as the main script and create functions/modules the way you like. One thing to certainly avoid is writing a monolithic script.
 
 ##### Business Requirements
 1. The Program thinks about a 3-digit number.
