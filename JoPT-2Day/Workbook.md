@@ -1,8 +1,17 @@
 ## The Joy of Python for Testers - Workbook for 2-day version
 
+### Purpose
+The primary purpose of this document and related code examples is to act as accompanying material to the workshop by Rahul Verma. 
+
+It contains the primary pieces of information building blocks as per the flow of the workshop. So, it provides supporting pieces for the workshop.
+
+The workhop encourages the participants to continue practising Python after the workshop. So, a seocndary and yet very important purpose of this content is to enable the participants to go through the learning on their own by coding the exercises without interruption.
+
 ### 1. Python Fundamentals
 
 #### Fundamental Python Constructs
+
+We are going to use Python Interactive Shell for this section.
 
 Python is losely typed language. Type of a variable (referred to as a name) is essentially the type of object it points to.
 
@@ -167,6 +176,38 @@ Here, we are calling the `append` method of a list object to add another element
 >>>l1
 ```
 
+#### Importing modules
+Python is referred to as a batteries-included langauge. It means that there are lots and lots of modules installed along with the core Python installation. These don't get loaded by default into memory when Python interpreter is launched. You will need to explcitily import what you want to use.
+
+You can import a module by using the `import` keyword.
+
+```python
+>>>import math
+>>>math.sqrt(4)
+```
+
+You can also import selective names from a module to be directly used in your code.
+
+```python
+>>>from math import sqrt
+>>>sqrt(4)
+```
+
+Python has other `import` variants some of which we will explore as the workshop unfolds.
+
+#### Creating Python Project and Running Our First Script
+We are using PyCharm as the default IDE here, but you can use a Python IDE that you are comfortable with).
+  - Create Python Project
+  - In the project root, create a python file named `ex01.py`
+  
+In the `ex01.py` script, add the following:
+
+```python
+print("The Joy of Python")
+```
+
+We can run the script using the IDE or from the terminal by running the command: `python ex01.py`.
+
 #### Creating Basic Functions
 
 Functions in Python are defined using the keyword `def`.
@@ -211,10 +252,31 @@ else:
 ```
 
 #### Exercise
-Create a function with name `calc_grade_1` which takes an score (number) as an argument and returns grade as string as per the following rules:
+In the script `ex01.py`, create a function with name `calc_grade` which takes an score (number) as an argument and returns grade as string as per the following rules:
   - 'C' grade if score is 40 or lesser
   - 'B' grade if score is greater than 40 but up to 80
   - 'A' grade for score greater than 80
+  
+ Call and experiment.
+ 
+#### Exercise: Creating a Package and Module
+Multiple modules can reside inside a single `package`. A `package` is a directory/folder containing an `__init__.py` file.
+
+In the Project,
+  - Create `jopt` package.
+  - Inside the `jopt` package, create a Python file with the name `basics.py`. This is the module file.
+  - In the project root, create a python file named `ex02.py`
+  - Copy the function definition of `calc_grade` to `basics.py`
+
+In the `ex02.py` file, add the following contents and execute:
+
+```python
+from jopt.basics import *
+grade = calc_grade(43)
+print(grade)
+```
+
+Until further told, all functions that we create would be coded in the `basics.py`. We will call the functions defined in this module in the `ex02.py` file. The importing of module can be done using `from jopt.basics import *` which essentially imports all functions available in the module.
 
 #### Raising an Exception
 
@@ -229,7 +291,7 @@ raise Exception("This didn't go well")
 ```
 
 #### Exercise
-Improve the `calc_grade_1` function and re-write it as `calc_grade_2` to throw an exception when a non-number object is provided.
+Improve the `calc_grade` function to throw an exception when a non-number object is provided.
 
 #### `for` Loop
 
@@ -257,7 +319,7 @@ for index, element in enumerate(elements):
 ```
 
 #### Exercise
-Write a function `calc_grades` which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling `calc_grade_2` function.
+Write a function `calc_grades` which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling `calc_grade` function.
 
 #### Taking Input from Console
 
