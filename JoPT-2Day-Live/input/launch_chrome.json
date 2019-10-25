@@ -1,0 +1,27 @@
+{
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [  ],
+            "extensions": [  ]
+         },
+         "platformName": "any",
+         "unhandledPromptBehavior": "dismiss"
+      },
+      "firstMatch": [ {
+
+      } ]
+   },
+   "desiredCapabilities": {
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [  ],
+         "extensions": [  ]
+      },
+      "platform": "ANY",
+      "unexpectedAlertBehaviour": "dismiss",
+      "unhandledPromptBehavior": "dismiss",
+      "version": ""
+   }
+}
