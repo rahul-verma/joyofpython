@@ -17,62 +17,24 @@ limitations under the License.
 
 
 def is_int(in_expr):
-    return type(in_expr) is int
+    pass
 
 
 def calc_grade(in_expr):
-    if not is_int(in_expr):
-        raise Exception("Not an int")
-
-    if in_expr <= 40:
-        return "C"
-    elif in_expr <= 80:
-        return "B"
-    else:
-        return "A"
+    pass
 
 
-# For a series of numbers
 def calc_grades(numbers):
-    for number in numbers:
-        print(calc_grade(number))
-
-    for index in range(len(numbers)):
-        print(calc_grade(numbers[index]))
-
-    for index, number in enumerate(numbers):
-        print("Index: {}".format(index), calc_grade(number))
+    pass
 
 
 def calc_grade_for_console_input():
-    number = input("Enter a number:")
-    print("Grade is {}".format(calc_grade(number)))
+    pass
 
 
-def calc_grades_for_console_input_1():
-    while True:
-        number = input("Enter a number (X to quit):")
-        if number.strip().lower() == 'x':
-            break
+def calc_grades_for_console_input():
+    pass
 
-        print("Grade is {}".format(calc_grade(number)))
-
-
-def calc_grades_for_console_input_2():
-    while True:
-        number = input("Enter a number (X to quit):")
-        if number.strip().lower() == 'x':
-            break
-
-        try:
-            grade = calc_grade(number)
-        except ValueError:
-            print("Not a number")
-            continue
-        else:
-            print("Grade is {}".format(grade))
-        finally:
-            print("Get ready for next entry")
 
 
 
