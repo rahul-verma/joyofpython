@@ -1,5 +1,7 @@
 # The Joy of Python for Testers&trade;
-Workbooks and source code for The Joy of Python For Testers&trade; series of workshops by Rahul Verma.
+This repository is meant to support The Joy of Python For Testers&trade; series of workshops by Rahul Verma.
+
+It contains Workbooks and source code for (guided) hands-on exercises, un-guided hands-on exercises, and demonstrations.
 
 ## Guidelines for Usage
   - The source code of all workshops is licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). It means you are free to use the source in your free or commercial work.
