@@ -1,4 +1,4 @@
-### 1. Python Fundamentals
+## 1. Python Fundamentals
 
 - [Fundamental Python Constructs](#fundamental-python-constructs)
 - [Importing modules](#importing-modules)
@@ -23,7 +23,7 @@
   * [Hints](#hints)
 - [Walk-through of a Sample Solution - Put It All Together - The MindMaster Game](#walk-through-of-a-sample-solution---put-it-all-together---the-mindmaster-game)
 
-#### Fundamental Python Constructs
+### Fundamental Python Constructs
 
 We are going to use Python Interactive Shell for this section.
 
@@ -190,7 +190,7 @@ Here, we are calling the `append` method of a list object to add another element
 >>>l1
 ```
 
-#### Importing modules
+### Importing modules
 Python is referred to as a batteries-included langauge. It means that there are lots and lots of modules installed along with the core Python installation. These don't get loaded by default into memory when Python interpreter is launched. You will need to explcitily import what you want to use.
 
 You can import a module by using the `import` keyword.
@@ -209,7 +209,7 @@ You can also import selective names from a module to be directly used in your co
 
 Python has other `import` variants some of which we will explore as the workshop unfolds.
 
-#### Creating Python Project and Running Our First Script
+### Creating Python Project and Running Our First Script
 We are using PyCharm as the default IDE here, but you can use a Python IDE that you are comfortable with).
   - Create Python Project
   - Copy all the contents of this directory in GitHub repository in the root directory of the project.
@@ -222,7 +222,7 @@ print("The Joy of Python")
 
 We can run the script using the IDE or from the terminal by running the command: `python ex01.py`.
 
-#### Creating Basic Functions
+### Creating Basic Functions
 
 Functions in Python are defined using the keyword `def`.
 
@@ -243,7 +243,7 @@ Once defined, you can call this function just like built-in functions.
 ret_val = function_name(1, 'testing')
 ```
 
-#### Conditional Control Structures
+### Conditional Control Structures
 
 Python supports code blocks that get executed when a condition is True or False.
 
@@ -265,7 +265,7 @@ else:
      #path4
 ```
 
-#### Exercise
+### Exercise
 In the script `ex01.py`, create a function with name `calc_grade` which takes an score (number) as an argument and returns grade as string as per the following rules:
   - 'C' grade if score is 40 or lesser
   - 'B' grade if score is greater than 40 but up to 80
@@ -273,7 +273,7 @@ In the script `ex01.py`, create a function with name `calc_grade` which takes an
 
  Call and experiment.
 
-#### Exercise: Creating a Package and Module
+### Exercise: Creating a Package and Module
 Multiple modules can reside inside a single `package`. A `package` is a directory/folder containing an `__init__.py` file.
 
 In the project, you can see that there is a `jopt` package already created. In this package, various modules are present. One of them is `basics.py` which contains skeletons of various functions that you are going to implement one by one.
@@ -287,7 +287,7 @@ grade = calc_grade(43)
 print(grade)
 ```
 
-#### Raising an Exception
+### Raising an Exception
 
 Rather than returning an error code, in Python you usually raise/throw an exception object.
 
@@ -299,10 +299,10 @@ You can raise an exception using the `raise` keyword.
 raise Exception("This didn't go well")
 ```
 
-#### Exercise
+### Exercise
 Improve the `calc_grade` function to throw an exception when a non-number object is provided. Run the ex02.py script by providing non-numbers to evaluate the behavior.
 
-#### `for` Loop
+### `for` Loop
 
 The most commonly used construct in Python is proably the one where you iterate on a container using a `for` loop:
 
@@ -327,12 +327,12 @@ for index, element in enumerate(elements):
   print(index, element)
 ```
 
-#### Exercise
+### Exercise
 Implement the function `calc_grades` which takes numbers list argument and using a for loop prints grades for all the numbers in the list by calling `calc_grade` function.
 
 Call the function in ex03.py.
 
-#### Taking Input from Console
+### Taking Input from Console
 
 You can take input from console using the built-in `input()` function. Remember that it always returns a string, so you might have to use the type conversion functions before using the value.
 
@@ -343,12 +343,12 @@ age = input("What's your age? ")
 print(int(age))
 ```
 
-#### Exercise
+### Exercise
 Implement the function with name `calc_grade_for_console_input` which takes a number from console as an input and prints its grade.
 
 Call the function in ex04.py.
 
-#### `while` Loop
+### `while` Loop
 Another style of loop which can be used in Python is a `while` loop. You use it when the decision to stop the loop is taken within the body of the loop. In short, use it when you don't know how any iterations should be executed.
 
 ```python
@@ -358,12 +358,12 @@ while condition:
 
 Here, the loop runs as long as the condition evaluates to True.
 
-#### Exercise
+### Exercise
 Implement the function with name `calc_grades_for_console_input` which uses `while` loop to take numbers as inputs from console and prints the grade using `calc_grade_for_console_input` function call. The program should exit when user enters 'x' in lower or upper case.
 
 Call the function in ex05.py
 
-#### Exception Handling
+### Exception Handling
 Error handling based code usually relies on preventive checking of potential problems that could take place.
 
 Exception handling on the other end, usually lets the problem take place and handles it at appropriate layers. This is a common found feature in all OOP languages.
@@ -383,15 +383,15 @@ finally:
   # do this always
 ```
 
-#### Exercise
+### Exercise
 Modify the function `calc_grades_for_console_input` to include exception handling for the case where user enters a non-number. The goal is to let the program continue in case of invalid input by informing the user that it was an invalid input.
 
 Call the function in ex05.py
 
-#### Long Exercise - Put It All Together - The MindMaster Game
+### Long Exercise - Put It All Together - The MindMaster Game
 Create a MindMaster Game in `ex06_mindmaster.py`. You can treat it as the main script and create functions/modules the way you like. One thing to certainly avoid is writing a monolithic script.
 
-##### Business Requirements
+#### Business Requirements
 1. The Program thinks about a 3-digit number.
 2. User is given 10 attempts to guess the number via Console/Terminal.
 3. For each guess, user is provided feedback. The feedback mentions 2 things - how many digits are correct and how many digits are at correct position.
@@ -399,16 +399,16 @@ Create a MindMaster Game in `ex06_mindmaster.py`. You can treat it as the main s
 5. After each game play, the program informs the user about how many games s/he won or lost.
 
 
-##### Technical Requirements
+#### Technical Requirements
 1. Whether the number contains duplicate digits should be configurable.
 2. User `format()` for string formatting instead of string concatenation using +.
 3. Use a dictionary for storing number of games won and lost.
 4. Handle and process exception for a non-int entry. It would be counted as an attempt.
 
-##### Hints
+#### Hints
 1. When you convert a string to a list, each character is an item in the list.
 2. `strip()` method of string removes the extraneous spaces at head as well as tail.
 3. You can generate a random integer between a range by using `randint(x,y)` function in `random` module.
 
-#### Walk-through of a Sample Solution - Put It All Together - The MindMaster Game
+### Walk-through of a Sample Solution - Put It All Together - The MindMaster Game
 Let's look at the details of a possible solution. Map to the way you approached the problem and take a note of any new learning or a different way of solving the same problem.
