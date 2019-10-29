@@ -1,6 +1,20 @@
 
 ## 3. Launching and Handling Child Processes
 
+- [Checking operating system at run-time](#checking-operating-system-at-run-time)
+- [The `subprocess` module](#the-subprocess-module)
+- [Specifying Varible Number of (Positional) Arguments in a Function Call](#specifying-varible-number-of-positional-arguments-in-a-function-call)
+- [Hand-On: Get Directory listing and print the output](#hand-on-get-directory-listing-and-print-the-output)
+- [Understanding Regular Expressions](#understanding-regular-expressions)
+- [Hands-On: Matching and Extraction in one-go](#hands-on-matching-and-extraction-in-one-go)
+- [Exercise: Find Process ID(s) Based On Process Name Regex Pattern](#exercise-find-process-ids-based-on-process-name-regex-pattern)
+  * [Tips and Inputs](#tips-and-inputs)
+- [Demo: Parent in Non-Blocking Mode using pexpect](#demo-parent-in-non-blocking-mode-using-pexpect)
+- [Long Exercise: Automating Chrome using requests, JSON Wire Protocol and chromedriver](#long-exercise-automating-chrome-using-requests-json-wire-protocol-and-chromedriver)
+  * [Critical Information about Protocol](#critical-information-about-protocol)
+  * [Tips and Inputs](#tips-and-inputs-1)
+- [Walk-through of a Sample Solution](#walk-through-of-a-sample-solution)
+
 ### Checking operating system at run-time
 
 At times, you need to determine the OS name at run time to take OS-specific actions.
@@ -38,7 +52,7 @@ On Windows, you can launch it as follows:
 stdout, stderr = proc.communicate()
 ```
 
-### Specifying Varible Number of (Positional) Aguments in a Function Call
+### Specifying Varible Number of (Positional) Arguments in a Function Call
 
 You can specify variable number of args for a function using the following syntax:
 
@@ -101,7 +115,7 @@ Let's implement the function `extract_email_parts` in `data_utils.py` file to ex
 
 Implement the `find_process_ids` function in `process_utils.py` file. It takes the process name pattern, runs the appropriate command as per a platform and then extracts the process ids.
 
-#### Hints
+#### Tips and Inputs
 1. You can use `re.findall(pattern, target_string)` to find all matches.
 2. `top -l 1` is the command that you can run on Mac/Linux to find the processes. The first column contains the process ids and the second contains the process names.
 3. `tasklist` is the command that you can use on Windows. The first column is the process name and the second column is the process id.
@@ -129,7 +143,7 @@ Considering the basic nature of this workshop, this section has been kept shorte
 >>> 
 ```
 
-### Long Exercise - Automating Chrome using requests, JSON Wire Protocol and chromedriver
+### Long Exercise: Automating Chrome using requests, JSON Wire Protocol and chromedriver
 
 ChromeDriver executable can be used to automate Chrome. As a part of this exercise, you need to automate the following steps:
 
