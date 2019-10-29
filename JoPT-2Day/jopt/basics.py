@@ -34,38 +34,42 @@ def calc_grade(in_expr):
 
 # For a series of numbers
 def calc_grades(numbers):
+
+    # Loop variant 1
     for number in numbers:
         print(calc_grade(number))
 
+    # Loop variant 2
     for index in range(len(numbers)):
         print(calc_grade(numbers[index]))
 
+    # Loop variant 3
     for index, number in enumerate(numbers):
         print("Index: {}".format(index), calc_grade(number))
 
 
 def calc_grade_for_console_input():
     number = input("Enter a number:")
-    print("Grade is {}".format(calc_grade(number)))
+    print("Grade is {}".format(calc_grade(int(number))))
 
 
-def calc_grades_for_console_input_1():
+def calc_grades_for_console_input_stage1():
     while True:
         number = input("Enter a number (X to quit):")
         if number.strip().lower() == 'x':
             break
 
-        print("Grade is {}".format(calc_grade(number)))
+        print("Grade is {}".format(calc_grade(int(number))))
 
 
-def calc_grades_for_console_input_2():
+def calc_grades_for_console_input():
     while True:
         number = input("Enter a number (X to quit):")
         if number.strip().lower() == 'x':
             break
 
         try:
-            grade = calc_grade(number)
+            grade = calc_grade(int(number))
         except ValueError:
             print("Not a number")
             continue
@@ -73,6 +77,7 @@ def calc_grades_for_console_input_2():
             print("Grade is {}".format(grade))
         finally:
             print("Get ready for next entry")
+
 
 
 

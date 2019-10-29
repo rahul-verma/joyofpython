@@ -17,21 +17,23 @@ limitations under the License.
 
 import os
 
+from .os_utils import *
 
 def get_root_dir():
     my_dir = os.path.realpath(os.path.dirname(__file__))
-    return os.path.join(my_dir, "..")
-
-
-def get_output_file_path(file_name):
-    return os.path.join(get_root_dir(), "output", file_name)
+    return os.path.abspath(os.path.join(my_dir, ".."))
 
 
 def get_input_file_path(file_name):
     return os.path.join(get_root_dir(), "input", file_name)
 
 
-def get_full_driver_path(driver_name):
+def get_output_file_path(file_name):
+    return os.path.join(get_root_dir(), "output", file_name)
+
+
+def get_driver_path(driver_name):
+    if is_windows_os(): driver_name += '.exe'
     return os.path.join(get_root_dir(), "drivers", driver_name)
 
 

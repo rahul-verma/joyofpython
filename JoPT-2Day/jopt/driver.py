@@ -39,7 +39,7 @@ class WebAutomator:
         return self.__wait
 
     def __launch(self):
-        driver_path = get_full_driver_path("chromedriver")
+        driver_path = get_driver_path("chromedriver")
         self.__driver = webdriver.Chrome(executable_path=driver_path)
         self.__wait = WebDriverWait(self.driver, 60)
 
