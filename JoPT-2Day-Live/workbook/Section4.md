@@ -182,7 +182,7 @@ python -m unittest <test_script_path>
 
 ### Long Exercise: Use unittest to implement valid and invalid login scenario.
 
-Implement the following test scenarios as test methods in a single test class in `ex22.py` file.
+Implement the following test scenarios as test methods in a single test class in `ex22_login_tests.py` file.
 1. Valid Login Test
 2. Invalid Login Test
 
