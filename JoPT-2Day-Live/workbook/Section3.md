@@ -170,7 +170,7 @@ Following information is provided for you in case you would like try out doing i
 2. You can launch chrome by sending a POST request to the url `http://localhost:4322/session`. The content/body to be sent as a part of this request is available as `launch_chrome.json` file in `input` directory of project.
 3. The step 2 will return a JSON response from which you can extract the session-id. For example `response['value']['sessionId']`. Let's call it `session_id`.
 4. To go to a URL, send a POST request to `http://localhost:4322/session/<session_id>/url` with the JSON body: `{'url' : '<url>'}`.
-5. To get page source, send GET request to `http://localhost:4322/session/<session_id>/source`.
+5. To get page source, send GET request to `http://localhost:4322/session/<session_id>/source`. The source is contained in 'value' attribute.
 6. To quit browser, send DELETE request to `http://localhost:4322/session/<session_id>`.
 
 Launch "ChromeDriver" as a sub-process in a non-blocking mode. 
