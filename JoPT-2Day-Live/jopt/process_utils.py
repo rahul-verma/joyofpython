@@ -21,11 +21,11 @@ from subprocess import Popen, PIPE
 
 
 def execute_command(*command_parts):
-    proc = Popen(command_parts, stdout=PIPE, stderr=PIPE)
-    stdout, stderr = proc.communicate()
-    stdout = stdout.decode('utf-8')
-    stderr = stderr.decode('utf-8')
-    return proc.pid, stdout, stderr
+    pass
+
+
+def find_process_ids(proc_name_pattern):
+    pass
 
 
 def launch_nonblocking_process(command, expected_match):
