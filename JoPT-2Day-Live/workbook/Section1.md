@@ -1,5 +1,28 @@
 ### 1. Python Fundamentals
 
+- [Fundamental Python Constructs](#fundamental-python-constructs)
+- [Importing modules](#importing-modules)
+- [Creating Python Project and Running Our First Script](#creating-python-project-and-running-our-first-script)
+- [Creating Basic Functions](#creating-basic-functions)
+- [Conditional Control Structures](#conditional-control-structures)
+- [Exercise](#exercise)
+- [Exercise: Creating a Package and Module](#exercise-creating-a-package-and-module)
+- [Raising an Exception](#raising-an-exception)
+- [Exercise](#exercise-1)
+- [for Loop](#for-loop)
+- [Exercise](#exercise-2)
+- [Taking Input from Console](#taking-input-from-console)
+- [Exercise](#exercise-3)
+- [`while` Loop](#while-loop)
+- [Exercise](#exercise-4)
+- [Exception Handling](#exception-handling)
+- [Exercise](#exercise-5)
+- [Long Exercise - Put It All Together - The MindMaster Game](#long-exercise---put-it-all-together---the-mindmaster-game)
+  * [Business Requirements](#business-requirements)
+  * [Technical Requirements](#technical-requirements)
+  * [Hints](#hints)
+- [Walk-through of a Sample Solution - Put It All Together - The MindMaster Game](#walk-through-of-a-sample-solution---put-it-all-together---the-mindmaster-game)
+
 #### Fundamental Python Constructs
 
 We are going to use Python Interactive Shell for this section.
