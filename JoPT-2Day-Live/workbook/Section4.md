@@ -68,7 +68,7 @@ URL for admin interface is: `http://<ip address/wp-admin`.
 
 For finding an element, you need to express it as a 'By' strategy. Following are some commonly used strategies:
 
-```
+```python
 from selenium.webdriver.common.by import By
 By.ID
 By.NAME
@@ -84,7 +84,7 @@ Many a times, the element is not ready to be interacted with and this leads to f
 
 A highly suggested approach is to use fluent/dynamic waiting for the desired state.
 
-```
+```python
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 wait = WebDriverWait(<driver_object>, <time>)
