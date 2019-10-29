@@ -131,4 +131,28 @@ Considering the basic nature of this workshop, this section has been kept shorte
 
 ### Long Exercise - Automating Chrome using requests, JSON Wire Protocol and chromedriver
 
+ChromeDriver executable can be used to automate Chrome. As a part of this exercise, you need to automate the following steps:
+
+1. Launch Chrome.
+2. Go to `https://www.google.com`.
+3. Find all HTML nodes with the tag `input` and print the source.
+4. Quit Chrome.
+
+#### Critical Information about Protocol
+
+1. When launching the executable provide `--port=4322` as argument. Once launched, the process would create a web service listening at port 4322. This service can then be accessed at the url: `http://localhost:4322`
+2. You can launch chrome by sending a POST request to the url `http://localhost:4322/session`. The content/body to be sent as a part of this request is available as `launch_chrome.json` file in `input` directory of project.
+3. The step 2 will return a JSON response from which you can extract the session-id. For example `response['value']['sessionId']`. Let's call it `session_id`.
+4. To go to a URL, send a POST request to `http://localhost:4322/session/<session_id>/url` with the JSON body: `{'url' : '<url>'}`.
+5. To get page source, send GET request to `http://localhost:4322/session/<session_id>/source`.
+6. To quit browser, send DELETE request to `http://localhost:4322/session/<session_id>`.
+
+Launch "ChromeDriver" as a sub-process in a non-blocking mode. 
+
+#### Tips and Inputs
+1. On Mac/Linux, use `subprocess` or `pexepct` as per comfort. On Windows, use `subprocess` module. While using `subprocess` use `time.sleep(3-4 seconds)` call as a hack.
+2. Continue the legacy of dynamic paths, by implementing `get_driver_path` in `project_utils.py` file. 
+3. The name of executable contains `.exe` extension for Windows. Handle this using using the cross-platform technique taught earlier.
+
 ### Walk-through of a Sample Solution
+Let's look at the details of a possible solution. Map to the way you approached the problem and take a note of any new learning or a different way of solving the same problem.
