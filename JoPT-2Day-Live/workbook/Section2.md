@@ -1,5 +1,18 @@
-### 2. Basic Web Service Requests and File Handling
+## Section 2. Basic Web Service Requests and File Handling
 
+- [Installing PyPi packages using pip](#installing-pypi-packages-using-pip)
+- [Simple GET Request](#simple-get-request)
+- [Hands-on - Fetching JSON Content using a basic GET request.](#hands-on-fetching-json-content-using-a-basic-get-request)
+- [Hands-on - Finding Project Root Directory at Run-time](#hands-on-finding-project-root-directory-at-run-time)
+- [Exercise: Reading and Writing Text Files](#exercise-reading-and-writing-text-files)
+- [Hands-On: Reading and Writing a File](#hands-on-reading-and-writing-a-file)
+- [Hands-On: String methods - `split` and `join` and Optional Arguments in Functions](#hands-on-string-methods---split-and-join-and-optional-arguments-in-functions)
+- [Hands-On: `zip` and `dict` built-in functions](#hands-on-zip-and-dict-built-in-functions)
+- [Long Exercise: Reading and Writing Delimited and JSON Files](#long-exercise-reading-and-writing-delimited-and-json-files)
+- [Walk-through of a Sample Solution: Reading and Writing Delimited and JSON Files](#walk-through-of-a-sample-solution-reading-and-writing-delimited-and-json-files)
+- [Demo and Walk-through: Reading and Writing XML Files](#demo-and-walk-through-reading-and-writing-xml-files)
+- [Demo: Simple SOAP POST Request](#demo-simple-soap-post-request)
+  
 ### Installing PyPi packages using pip
 
 Beyond the packages that come pre-installed, you can also intall packages of choice from thousands of packages available on Python Package Index (PyPi). Run the following command from terminal:
@@ -8,7 +21,7 @@ Beyond the packages that come pre-installed, you can also intall packages of cho
 
 Here we are installing `requests` module which is the most popular Python library for interacting with web services.
 
-#### Simple GET Request
+### Simple GET Request
 
 Web services mostly work on HTTP and the most common HTTP methods used by web services are GET, POST, PUT, DELETE.
 
@@ -25,12 +38,12 @@ If you know that the response contains JSON response, you can convert get it as 
 json = response.json()
 ```
 
-### Hands-on - Fetching JSON Content using a basic GET request.
+### Hands-on: Fetching JSON Content using a basic GET request.
 Code should be implemented in `ex07.py`.
 
 Send a GET request to the url `https://jsonplaceholder.typicode.com/posts`. From the response, print the title of the first 10 post records.
 
-### Hands-on - Finding Project Root Directory at Run-time
+### Hands-on: Finding Project Root Directory at Run-time
 
 Python has pre-defined magic attributes, also called dunder attributes (doublw underscore attributes) for various types of object. One such attribute is `__file__` attribute which gives the path of current file.
 
@@ -46,13 +59,13 @@ Let's implement the `get_root_dir()` function in `project_utils.py` file in `jop
 
 Call the function and validate the output in `ex08.py`.
 
-#### Exercise: Reading/Writing Delimited Files
+### Exercise: Reading and Writing Text Files
 
 1. Create `output` directory in project root.
 2. In `project_utils.py`, implement the `get_input_file_path` and `get_output_file_path` functions to dynamically build paths for files present in the `input` and `output` directories by providing the `file_name` argument.
 3. Make calls to these functions in `ex08.py` to validate the output.
 
-#### Hands-On: Reading and Writing a File
+### Hands-On: Reading and Writing a File
 
 ```python
 f = open("<file_path>", "r") # Opens the file and returns a file object
@@ -81,7 +94,7 @@ with <open_command> as <file_object>:
 3. Implement the `read_file` function in `file_utils.py`. Utilize the `get_input_file_path` in `project_utils.py` to create full file path.
 4. In `ex09.py`, pass the same file name used in step 2 and validate that expected content is read.
 
-#### Hands-On: String methods - `split` and `join` and Optional Arguments in Functions
+### Hands-On: String methods - `split` and `join` and Optional Arguments in Functions
 
 For splitting a string based on a delimiter and for joining a sequence of strings based on a delimiter, following string methods come handy:
 ```python
@@ -99,7 +112,7 @@ def some_function(a, b=<default>):
 2. `delimiter` should be an optional argument.
 3. Call the functions in `ex10.py` file and validate.
 
-#### Hands-On: `zip` and `dict` built-in functions
+### Hands-On: `zip` and `dict` built-in functions
 
 Python's `zip` function can be used to combine sequences into a nested sequence where each element is a tuple of corresponding indexed elements in the sequences provided.
 
@@ -116,7 +129,7 @@ dict((1,3),(2,4)) # returns {1:3, 2:4}
 1. Let's implement the `convert_to_map` function in `data_utils.py` file.
 2. Call the function in `ex11.py` file and validate.
 
-#### Long Exercise: Reading/Writing Delimited and JSON Files
+### Long Exercise: Reading and Writing Delimited and JSON Files
 The `ex12_csv_json_files.py` should be considered as the main python file. Beyond this constraint, feel free to create and use modules as you find appropriate.
 
 1. Send a GET request to the url 'https://jsonplaceholder.typicode.com/users'.
@@ -131,11 +144,11 @@ Hints
 2. Use `\n` as the new line character when ending a line or when joining multiple lines. `os.linesep` is a cross-platform line separator, but used internally by Python when reading content.
 3. You can experiment with `readline`, `readlines`, `writelines` methods of file handle.
 
-#### Walk-through of a Sample Solution - Reading/Writing Delimited and JSON Files
+### Walk-through of a Sample Solution: Reading and Writing Delimited and JSON Files
 Let's look at the details of a possible solution. Map to the way you approached the problem and take a note of any new learning or a different way of solving the same problem.
 
-#### Demo and Walk-through: Reading/Writing XML Files
+### Demo and Walk-through: Reading and Writing XML Files
 As this is a 2-day workshop, dealing with XML files is not done in a hands-on mode. The purpose is to quickly show you the relevant pieces of building blocks for XML creating and parsing in Python.
 
-#### Demo: Simple SOAP POST Request
+### Demo: Simple SOAP POST Request
 As this is a 2-day workshop, dealing with XML files is not done in a hands-on mode. The purpose is to quickly show you the relevant pieces of building blocks for XML creating and parsing in Python.
