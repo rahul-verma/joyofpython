@@ -1,10 +1,134 @@
 
-### 3. Handling Child Processes
+## 3. Launching and Handling Child Processes
 
-#### Hands-On Parent in Blocking Mode using subprocess
+### Checking operating system at run-time
 
-#### Demo:  Parent in Non-Blocking Mode using pexpect
+At times, you need to determine the OS name at run time to take OS-specific actions.
 
-#### Long Exercise - Automating Chrome using requests, JSON Wire Protocol and chromedriver
+Using `platform` module's `system()` call, you can check the current operating system name.
 
-#### Walk-through of a Sample Solution
+```python
+platform.system()
+```
+
+### The `subprocess` module
+
+Python has a built-in `subprocess` module using which you can launch child processes.
+
+```python
+from subprocess import Popen, PIPE
+```
+
+Let's say there is a command `proc_name -a -b 2` that you want to launch. Also, you want to capture the output of pipes (STDOUT/STDERR) as bytes.
+
+On Mac/Linux, you can launch it as follows:
+```python
+proc = Popen(['proc_name`, '-a', '-b', '2'], stdout=PIPE, stderr=PIPE)
+```
+
+On Windows, you can launch it as follows:
+```python
+proc = Popen(['cmd', '/C', 'proc_name`, '-a', '-b', '2'], stdout=PIPE, stderr=PIPE)
+```
+
+To capture the output of pipes, you can use the `communicate` method:
+
+On Windows, you can launch it as follows:
+```python
+stdout, stderr = proc.communicate()
+```
+
+### Specifying Varible Number of (Positional) Aguments in a Function Call
+
+You can specify variable number of args for a function using the following syntax:
+
+```python
+def some_function(a, b, *args):
+    function body
+    In the body args is available as a tuple.
+```
+
+### Hand-On: Get Directory listing and print the output
+
+On Mac/Linux, use:
+```
+ls -l
+```
+
+On Windows, use:
+```
+dir
+```
+
+Let's implement the `execute_command` function in `process_utils.py`.
+
+### Understanding Regular Expressions
+
+Regular Expressions provide you with a vast grammar for string searching, matching and extraction.
+
+For most common scenarios, knowing the following part of grammar is sufficient:
+
+```
+[chars] - Allowed characters
+\w - word    \W  Non-word
+\d - digit   \D  Non-digit
+\s - space   \S  Non-space
+.  - anything
+
+Ocurrences
+{min, max}
+*  0 or more times
++  1 or more times
+?  0 or 1 time
+
+For extraction:
+Mark a group using parenthesis: ()
+```
+
+### Hands-On: Matching and Extraction in one-go
+
+Python's built-in `re` module helps you in doing all stuff related to regular expressions.
+
+For the purpose of this exercise, we will extract parts of a string based on pattern matching.
+
+```python
+re.match(pattern, target_string)
+```
+
+Let's implement the function `extract_email_parts` in `data_utils.py` file to extract the email id and domain when an email address is provided.
+
+### Exercise: Find Process ID(s) Based On Process Name Regex Pattern
+
+Implement the `find_process_ids` function in `process_utils.py` file. It takes the process name pattern, runs the appropriate command as per a platform and then extracts the process ids.
+
+#### Hints
+1. You can use `re.findall(pattern, target_string)` to find all matches.
+2. `top -l 1` is the command that you can run on Mac/Linux to find the processes. The first column contains the process ids and the second contains the process names.
+3. `tasklist` is the command that you can use on Windows. The first column is the process name and the second column is the process id.
+4. `communicate()` call returns output as byte-string. Before you can do text-operations/regex matching on the output, you need to decode it. For example, `stdout.decode('utf-8')`
+
+### Demo: Parent in Non-Blocking Mode using pexpect
+
+There are child processes which you would want to interact with post launching. This could be a trickly task on Windows. However, on Mac/Linux this is made very approachable using `pexepct` module.
+
+Considering the basic nature of this workshop, this section has been kept shorter.
+
+(For those on Mac/Linux), let's launch Python interactive shell from Python Interactive Shell. We will interact between these parent and child shells using pexpect.
+
+```python
+>>> import pexpect
+>>> child = pexpect.spawn('python3')
+>>> child.expect('>>>')
+>>> child.before
+>>> child.sendline('import math')
+>>> child.expect('>>>')
+>>> child.before
+>>> child.sendline('math.sqrt(4)')
+>>> child.expect('>>>')
+>>> child.before
+>>> 
+```
+
+### Long Exercise - Automating Chrome using requests, JSON Wire Protocol and chromedriver
+
+### Walk-through of a Sample Solution
