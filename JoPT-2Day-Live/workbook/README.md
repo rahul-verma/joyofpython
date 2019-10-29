@@ -12,3 +12,14 @@ The workshop encourages the participants to continue practising Python after the
 2. [Section 2 - Basic Web Service Requests and File Handling](Section2.md)
 3. [Section 3 - Handling Child Processes](Section3.md)
 4. [Section 4 - Foundations of Selenium WebDriver](Section4.md)
+
+
+### Lab Requirements
+1. You should have Python 3.5+ version must be installed on your machine.
+2. Following Python libs should be installed:
+    * requests
+    * pexpect (Mac/Linux)
+    * selenium
+3. Other dependencies
+    - Chrome Driver executable as per platform and installed browser version should be available.
+    - You should have access to a WordPress instance and administrator credentials.
