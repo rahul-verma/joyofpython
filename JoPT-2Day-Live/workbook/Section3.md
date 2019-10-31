@@ -2,11 +2,11 @@
 ## 3. Launching and Handling Child Processes
 
 - [Understanding Regular Expressions](#understanding-regular-expressions)
-- [Hands-On: Matching and Extraction in one-go](#hands-on-matching-and-extraction-in-one-go)
+- [Hands-On: Simlutaneous-String-Matching and Extraction](#hands-on-simlutaneous-string-matching-and-extraction)
 - [Checking operating system at run-time](#checking-operating-system-at-run-time)
 - [Exercise](#exercise)
 - [The `subprocess` module](#the-subprocess-module)
-- [Specifying Varible Number of (Positional) Arguments in a Function Call](#specifying-varible-number-of-positional-arguments-in-a-function-call)
+- [Specifying Variable Number of (Positional) Arguments in a Function Call](#specifying-variable-number-of-positional-arguments-in-a-function-call)
 - [Hand-On: Get Directory Listing and Print the Output](#hand-on-get-directory-listing-and-print-the-output)
 - [Exercise: Find Process ID(s) Based On Process Name Regex Pattern](#exercise-find-process-ids-based-on-process-name-regex-pattern)
   * [Tips and Inputs](#tips-and-inputs)
@@ -38,7 +38,7 @@ For extraction:
 Mark a group using parenthesis: ()
 ```
 
-### Hands-On: Matching and Extraction in one-go
+### Hands-On: Simlutaneous String Matching and Extraction
 
 Python's built-in `re` module helps you in doing all stuff related to regular expressions.
 
@@ -96,7 +96,7 @@ To capture the output of pipes, you can use the `communicate` method:
 stdout, stderr = proc.communicate()
 ```
 
-### Specifying Varible Number of (Positional) Arguments in a Function Call
+### Specifying Variable Number of (Positional) Arguments in a Function Call
 
 You can specify variable number of args for a function using the following syntax:
 
