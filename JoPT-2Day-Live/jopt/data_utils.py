@@ -1,10 +1,10 @@
 
 
-def list_to_str(in_list, delimiter=','):
+def convert_list_to_str(in_list, delimiter=','):
     pass
 
 
-def csv_str_to_list(csv_str, delimiter=','):
+def convert_csv_str_to_list(csv_str, delimiter=','):
     pass
 
 

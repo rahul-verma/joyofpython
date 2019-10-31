@@ -18,11 +18,12 @@ limitations under the License.
 
 import re
 
-def list_to_str(in_list, delimiter=','):
+
+def convert_list_to_str(in_list, delimiter=','):
     return delimiter.join([str(i) for i in in_list])
 
 
-def csv_str_to_list(csv_str, delimiter=','):
+def convert_csv_str_to_list(csv_str, delimiter=','):
     return csv_str.split(delimiter)
 
 
