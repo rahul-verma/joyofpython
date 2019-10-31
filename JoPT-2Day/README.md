@@ -1,7 +1,7 @@
 ## The Joy of Python for Testers - Solutions and Demos
 
 ### Purpose
-This project contains the solutions for exercises in the [2-Day Version of The Joy of Python for Testers worjshop](../JoPT-2Day-Live).
+This project contains the solutions for exercises in the [2-Day Version of The Joy of Python for Testers workshop](../JoPT-2Day-Live).
 
 The code for hands-on exercises is contained in correspondingly named python files.
 
