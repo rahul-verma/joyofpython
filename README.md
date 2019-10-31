@@ -10,5 +10,5 @@ It contains Workbooks and source code for (guided) hands-on exercises, un-guided
   - For any queries, feel free to reach out. The whole point of making all this work available as open-source, public repository is to encourage free use.
   
  ## 2-Day Version
-  - [Workbook for workshop and self-practice](./JoPT-2Day-Live/workbook/README.md)
-  - [Solutions and Demos](./JoPT-2Day)
+  - [Workbook for workshop and self-practice](./JoPT-2Day-Live/README.md)
+  - [Solutions and Demos](./JoPT-2Day/README.md)
