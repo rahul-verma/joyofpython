@@ -129,9 +129,10 @@ We'll call the function in `ex15.py` and validate output.
 
 #### Tips and Inputs
 1. You can use `re.findall(pattern, target_string)` to find all matches.
-2. `top -l 1` is the command that you can run on Mac/Linux to find the running processes. The first column contains the process ids and the second contains the process names.
-3. `tasklist` is the command that you can use on Windows. The first column is the process name and the second column is the process id.
-4. `communicate()` call returns output as byte-string. Before you can do text-operations/regex matching on the output, you need to decode it: `stdout.decode('utf-8')`
+2. `top -l 1` command (one iteration) can be used on Mac to find the running processes. The first column contains the process ids and the second contains the process names.
+3. `top -b -n 1` command (batch mode, 1 iteration) can be used on Linux. The first column contains the process ids and the last column contains the process name.
+4. `tasklist` is the command that you can use on Windows. The first column is the process name and the second column is the process id.
+5. `communicate()` call returns output as byte-string. Before you can do text-operations/regex matching on the output, you need to decode it: `stdout.decode('utf-8')`
 
 ### Hands-On (For Mac-Linux) and Demo-Only for Windows: Parent in Non-Blocking Mode using `pexpect` module
 
