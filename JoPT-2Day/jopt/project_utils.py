@@ -29,7 +29,10 @@ def get_input_file_path(file_name):
 
 
 def get_output_file_path(file_name):
-    return os.path.join(get_root_dir(), "output", file_name)
+    dir_path = os.path.join(get_root_dir(), "output")
+    if not os.path.isdir(dir_path):
+        os.makedirs(dir_path)
+    return os.path.join(dir_path, file_name)
 
 
 def get_driver_path(driver_name):
