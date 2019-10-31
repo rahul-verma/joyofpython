@@ -33,7 +33,7 @@ def __get_author_values(in_data, attrs):
 
 
 def __write_line(file_handle, line_parts, delimiter):
-    file_handle.write(list_to_str(line_parts, delimiter) + '\n')
+    file_handle.write(convert_list_to_str(line_parts, delimiter) + '\n')
 
 
 def write_csv(authors, attrs, fpath, delimiter=","):
@@ -49,7 +49,7 @@ def read_csv(fpath, delimiter=","):
         headers = f.readline().strip().split(delimiter)
         for line in f.readlines():
             line = line.strip()
-            record = convert_to_map(headers, csv_str_to_list(line, delimiter))
+            record = convert_to_map(headers, convert_csv_str_to_list(line, delimiter))
             output.append(record)
     #pprint.pprint(output)
     return output
