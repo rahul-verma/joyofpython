@@ -7,16 +7,14 @@
 - [Defining a Class](#defining-a-class)
 - [Hands-On: Create a Calculator Class](#hands-on-create-a-calculator-class)
 - [Python `unittest`: TestCase Class, Test Methods, Fixtures and Assertions](#python-unittest-testcase-class-test-methods-fixtures-and-assertions)
-- [Hands-On: A Sample Unit Test Class](#hands-on-a-sample-unit-test-class)
-- [Long Exercise: Use unittest to implement valid and invalid login scenario.](#long-exercise-use-unittest-to-implement-valid-and-invalid-login-scenario)
+- [Hands-On: Calculator Test Class](#hands-on-calculator-test-class)
+- [Long Exercise: Implement Valid and Invalid Login Scenarios.](#long-exercise-implement-valid-and-invalid-login-scenarios)
   * [Tips and Inputs](#tips-and-inputs)
-- [Walk-through of a Sample Solution](#walk-through-of-a-sample-solution)
+- [Walk-through: A Sample Solution](#walk-through-a-sample-solution)
 
 ### Hands-On: Basic Browser Handling Using Python Selenium Client Bindings
 
 In continuation to the demo using ChromeDriver, we'll now automate the following steps using Selenium library:
-
-ChromeDriver executable can be used to automate Chrome. As a part of this demonstrate to you the following steps:
 
 1. Launch Chrome.
 2. Go to https://www.google.com.
@@ -24,19 +22,17 @@ ChromeDriver executable can be used to automate Chrome. As a part of this demons
 4. Quit Chrome.
 
 Let's install selenium:
-
 ```
 pip install selenium
 ```
 
 To launch chrome:
-
 ```python
 from selenium import webdriver
 driver = webdriver.Chrome(executable_path=<path>)
 ```
 
-We'll implement and use the function `get_driver_path` in `project_utils.py`.
+We'll implement and use the function `get_driver_path` in `project_utils.py` to create driver path.
 
 To go to a url:
 
@@ -62,11 +58,11 @@ Let's implement these steps in `ex17.py` file.
 
 ### Hands-On: Finding Elements using `driver.find_element` method
 
-This step onwards, we'll use the WordPress application. You should use the ip address as per the lab machine allocated to you.
+This step onwards, we'll use the WordPress application. You should use the ip address as per the lab machine allocated to you or your own installation of WordPress.
 
 URL for admin interface is: `http://<ip address/wp-admin`.
 
-For finding an element, you need to express it as a 'By' strategy. Following are some commonly used strategies:
+For finding an element, you need to express it as a `By` strategy. Following are some commonly used strategies:
 
 ```python
 from selenium.webdriver.common.by import By
@@ -76,11 +72,13 @@ By.XPATH
 By.CSS_SELECTOR
 ```
 
+`find_element` returns a `WebElement` object.
+
 Let's identify the user name field using all these strategies and implement in `ex18.py` file.
 
 ### Hands-On: Dynamic Waiting and State Checking
 
-Many a times, the element is not ready to be interacted with and this leads to flaky tests.
+Many a times, the element is not available or ready to be interacted with. Ignoing this behavior leads to flaky tests.
 
 A highly suggested approach is to use fluent/dynamic waiting for the desired state.
 
@@ -91,7 +89,7 @@ wait = WebDriverWait(<driver_object>, <time>)
 element = wait.until(EC.element_to_be_clickable((<by_type>, <by_value>))
 ```
 
-Other usual conditions of interest are `presence_of_element_located` and `visibility_of_element_located`.
+Other common conditions of interest are `presence_of_element_located` and `visibility_of_element_located`.
 
 Notice that you have to pass, the `By` strategy and value as a `tuple` unlike `find_element` call where you passed them as individual arguments.
 
@@ -110,9 +108,9 @@ Let's enter `user` text in the user name text box in `ex19.py` file.
 
 ### Defining a Class
 
-You can create a class in Python using the `class` keyword. It can contain any number of functions, which are mostly bound to a specific object/instance of a class and hence are called `bound methods` or simply `methods`.
+You can create a class in Python using the `class` keyword. It can contain any number of functions, which are mostly bound to a specific object/instance of a class and hence are called `bound methods` or simply `methods`. *(Python also has class methods and static methods. Beyond scope for this workshop).*
 
-The class names in Python are the only exception to naming and use the CamelCase style.
+The class names in Python are the only exception to naming conventions that you've seen. Class names use the `CamelCase` style.
 
 ```python
 class ClassName:
@@ -129,7 +127,7 @@ class ClassName:
  
  A class acts as a template/blue-print to create any number of objects.
 
-Note that in the definition of a function, you always pass `self` as the first argument (unless you are dealing with advanced method variants, not in scope of this workshop). This is a reference to the current object/instance and unlike most other languages is defined explicitly in Python.
+Note that in the definition of a function, you always pass `self` as the first argument (unless you are dealing with class/static methods, which are not in scope of this workshop). This is a reference to the current object/instance and unlike most other languages is defined explicitly in Python.
 
 Creating an object of this class is similar to a function call syntax:
  
@@ -137,7 +135,7 @@ Creating an object of this class is similar to a function call syntax:
  cn = ClassName()
  ```
  
- Now, you can call the methods, as you called methods of pre-defined objects so far:
+ Now, you can call the methods, just like you called methods of pre-defined objects so far:
  
  ```python
  cn.method1(val1)
@@ -147,7 +145,11 @@ Note that while calling, the first argument `self` is automatically handled by P
 
 ### Hands-On: Create a Calculator Class
 
-Let's create a simple class `Calculator` with 3 methods `add` and `sub` and `reset`. For each calculation that it does, it increments a state attribute `calc_count`. Calling the `reset` methods, resets the value of `calc_count` to 0.
+Let's create a simple class `Calculator` with 3 methods `add` and `sub` and `reset`. 
+
+For each calculation that it does, it increments a state attribute `calc_count`. Let's implement it as a `property`, which is the suggested way in Python instead of getter/setter methods.
+
+Calling the `reset` method should reset the value of `calc_count` to 0.
 
 Write usage code in `ex20.py`.
 
@@ -157,12 +159,12 @@ Selenium library is meant only for automating the UI of a web application. To wr
 
 Steps:
 1. Create a test class and inherit it from `unittest.TestCase`
-2. Make a `super().__init__()` call to complete any necessary initization needed by the engine.
+2. Make a `super().__init__()` call to complete any necessary initialization needed by the engine.
 2. Implement any tests as test methods of this class. For this, the names of methods should be prefixed with `test`.
-4. In the test methods, write validations by using `assertion` methods of the `TestCase` object.
-5. Optionally, move set-up and clean-up instructions to `Test Fixture methods` at test-class-level (`setUpClass/tearDownClass`) or test-method-level (`setUp/tearDown`) (We'll explore test method level fixtures in this workshop).
+4. In the test methods, write validations by using `assert*` methods of the `TestCase` object.
+5. Optionally, move set-up and clean-up instructions to `Fixture methods` at test-class-level (`setUpClass/tearDownClass`) or test-method-level (`setUp/tearDown`) (We'll explore test method level fixtures in this workshop).
 
-### Hands-On: A Sample Unit Test Class
+### Hands-On: Calculator Test Class
 
 Let's write some unit tests for the Calculator class created in `calc.py` in `ex21.py`.
 
@@ -180,7 +182,7 @@ There are multiple ways to run unit tests. One easy way of doing so is running t
 python -m unittest <test_script_path>
 ```
 
-### Long Exercise: Use unittest to implement valid and invalid login scenario.
+### Long Exercise: Implement Valid and Invalid Login Scenarios.
 
 Implement the following test scenarios as test methods in a single test class in `ex22_login_tests.py` file.
 1. Valid Login Test
@@ -192,5 +194,5 @@ Implement the following test scenarios as test methods in a single test class in
 3. To get the value of an attribute of an element, you can use `get_attribute` method call.
 4. The link URL for a hyperlink in HTML is contained in its `href` attribute.
 
-### Walk-through of a Sample Solution
+### Walk-through: A Sample Solution
 Let's look at the details of a possible solution. Map to the way you approached the problem and take a note of any new learning or a different way of solving the same problem.
