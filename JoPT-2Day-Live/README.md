@@ -12,6 +12,7 @@ The workshop encourages the participants to continue practising Python after the
 2. [Section 2 - Basic Web Service Requests and File Handling](./workbook/Section2.md)
 3. [Section 3 - Handling Child Processes](./workbook/Section3.md)
 4. [Section 4 - Foundations of Selenium WebDriver](./workbook/Section4.md)
+5. [Section 5 - Further References and Learning Resources](./workbook/Section5.md)
 
 
 ### Lab Requirements
