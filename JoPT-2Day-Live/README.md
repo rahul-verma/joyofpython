@@ -3,7 +3,7 @@
 ### Purpose
 The primary purpose of this document and related code examples is to act as accompanying material to the workshop by Rahul Verma. 
 
-It contains the primary pieces of information building blocks as per the flow of the workshop. So, it provides supporting pieces for the workshop.
+It contains the primary pieces of building blocks as per the flow of the workshop. So, it provides supporting pieces for the workshop.
 
 The workshop encourages the participants to continue practising Python after the workshop. So, a seocndary and yet very important purpose of this content is to enable the participants to go through the learning on their own by coding the exercises without interruption.
 
