@@ -4,12 +4,12 @@
 - [Simple GET Request](#simple-get-request)
 - [Hands-on - Fetching JSON Content using a basic GET request.](#hands-on-fetching-json-content-using-a-basic-get-request)
 - [Hands-on - Finding Project Root Directory at Run-time](#hands-on-finding-project-root-directory-at-run-time)
-- [Exercise: Reading and Writing Text Files](#exercise-reading-and-writing-text-files)
-- [Hands-On: Reading and Writing a File](#hands-on-reading-and-writing-a-file)
+- [Exercise: Dynamic Creation of Input/Output Files in Project](#exercise-dynamic-creation-of-inputoutput-files-in-project)
+- [Hands-On: Reading and Writing a Text File](#hands-on-reading-and-writing-a-text-file)
 - [Hands-On: String methods - `split` and `join` and Optional Arguments in Functions](#hands-on-string-methods---split-and-join-and-optional-arguments-in-functions)
 - [Hands-On: `zip` and `dict` built-in functions](#hands-on-zip-and-dict-built-in-functions)
 - [Long Exercise: Reading and Writing Delimited and JSON Files](#long-exercise-reading-and-writing-delimited-and-json-files)
-- [Walk-through of a Sample Solution: Reading and Writing Delimited and JSON Files](#walk-through-of-a-sample-solution-reading-and-writing-delimited-and-json-files)
+- [Walk-through: A Sample Solution](#walk-through-a-sample-solution)
 - [Demo and Walk-through: Reading and Writing XML Files](#demo-and-walk-through-reading-and-writing-xml-files)
 - [Demo: Simple SOAP POST Request](#demo-simple-soap-post-request)
   
@@ -23,16 +23,16 @@ Here we are installing `requests` module which is the most popular Python librar
 
 ### Simple GET Request
 
-Web services mostly work on HTTP and the most common HTTP methods used by web services are GET, POST, PUT, DELETE.
+Web services mostly work on `HTTP` (Hyper-Text Transfer Protocol) and the most common `HTTP verbs` used by web services are `GET, POST, PUT, DELETE`.
 
-A GET request can be sent easily:
+A GET request can be sent easily using `requests`:
 
 ```python
 import requests
 response = requests.get(<url>)
 ```
 
-If you know that the response contains JSON response, you can convert get it as a Python dictionary:
+If you know that the response contains JSON response, you can convert it into a Python dictionary:
 
 ```python
 json = response.json()
@@ -45,7 +45,7 @@ Send a GET request to the url `https://jsonplaceholder.typicode.com/posts`. From
 
 ### Hands-on: Finding Project Root Directory at Run-time
 
-Python has pre-defined magic attributes, also called dunder attributes (doublw underscore attributes) for various types of object. One such attribute is `__file__` attribute which gives the path of current file.
+Python has pre-defined `magic attributes`, also called `dunder attributes` (double underscore attributes) for various types of objects. One such attribute is `__file__` attribute which gives the path of current file.
 
 Built-in `os` module has various functions which are useful to a tester:
 
@@ -59,13 +59,15 @@ Let's implement the `get_root_dir()` function in `project_utils.py` file in `jop
 
 Call the function and validate the output in `ex08.py`.
 
-### Exercise: Reading and Writing Text Files
+### Exercise: Dynamic Creation of Input/Output Files in Project
 
-1. Create `output` directory in project root.
-2. In `project_utils.py`, implement the `get_input_file_path` and `get_output_file_path` functions to dynamically build paths for files present in the `input` and `output` directories by providing the `file_name` argument.
+1. In `project_utils.py`, implement the `get_input_file_path` and `get_output_file_path` functions to dynamically build paths for files present in the `input` and `output` directories by providing the `file_name` argument.
+2. For first time usage, the `output` directory is not present. Handle this case in the `get_output_file_path` by using `os.path.isdir` and `os.makedirs` functions.
 3. Make calls to these functions in `ex08.py` to validate the output.
 
-### Hands-On: Reading and Writing a File
+### Hands-On: Reading and Writing a Text File 
+
+Following instructions can be used for opening a file and reading its content:
 
 ```python
 f = open("<file_path>", "r") # Opens the file and returns a file object
@@ -73,7 +75,8 @@ f.read() # Reads all the content
 f.close() # closes the file handle
 ```
 
-Following calls can be used to create and write to a file:
+Following instructions can be used to create a file and write to it:
+
 ```python
 f = open("<file_path>", "w") # Opens the file and returns a file object
 f.write(<string>) . # Write a string a to the file
@@ -99,52 +102,53 @@ with <open_command> as <file_object>:
 For splitting a string based on a delimiter and for joining a sequence of strings based on a delimiter, following string methods come handy:
 ```python
 "a,b,c".split(",") . # Can use any delimiter
-",".join(['a', 'b', 'c'])
+",".join(['a', 'b', 'c']) . # All items must be strings
 ```
 
-Python supports optional/default arguments in functions i.e. if you don't pass the argument while calling, the default value of the argument is consumed. In the function definition, you can specifiy it as follows (here `b` is the optional argument):
+Python supports `default arguments` (optional arguments) in function definition. If you don't pass the argument while calling, the default value of the argument is considered. In the function definition, you can specifiy it as follows (here `b` is the optional argument):
 ```python
 def some_function(a, b=<default>):
     function body
 ```
 
-1. Let's implement the `list_to_str` and `csv_str_to_list` functions in `data_utils.py` file.
+1. Let's implement the `convert_list_to_str` and `convert_csv_str_to_list` functions in `data_utils.py` file.
 2. `delimiter` should be an optional argument.
 3. Call the functions in `ex10.py` file and validate.
 
 ### Hands-On: `zip` and `dict` built-in functions
 
-Python's `zip` function can be used to combine sequences into a nested sequence where each element is a tuple of corresponding indexed elements in the sequences provided.
+Python's `zip` function can be used to combine sequences into a zip object (equivalent to a nested sequence) where each element is a tuple of corresponding indexed elements in the sequences provided.
 
 ```python
-zip([1,2], [3,4]) # returns ((1,3),(2,4))
+zip([1,2], [3,4])
 ```
 
 `dict` function can take a specific style of nested sequence as an argument where each element is a 2-element tuple and convert it into a dictionary.
 
 ```python
-dict((1,3),(2,4)) # returns {1:3, 2:4}
+dict([(1,3),(2,4)]) # returns {1:3, 2:4}
+ dict(zip([1,2], [3,4]))  # returns {1:3, 2:4}
 ```
 
 1. Let's implement the `convert_to_map` function in `data_utils.py` file.
 2. Call the function in `ex11.py` file and validate.
 
 ### Long Exercise: Reading and Writing Delimited and JSON Files
-The `ex12_csv_json_files.py` should be considered as the main python file. Beyond this constraint, feel free to create and use modules as you find appropriate.
+The `ex12_csv_json_files.py` should be considered as the main python file. Beyond this constraint, feel free to create modules and functions as you find appropriate.
 
-1. Send a GET request to the url 'https://jsonplaceholder.typicode.com/users'.
-2. From the response remove the 'address' and 'company' attributes of each user.
+1. Send a GET request to the url `https://jsonplaceholder.typicode.com/users`.
+2. From the response remove the `address` and `company` attributes of each user record.
 3. Write the data for the first 10 users in a CSV file as well as a JSON file.
-4. Read the data from this generated CSV file. Let's call it `csv_output`.
+4. Read the data from the generated CSV file. Let's call it `csv_output`.
 5. Read the data from the generated JSON file. Let's call it `json_output`.
-6. Compare that the user names are same for all users in `csv_output` and `json_ouput`
+6. Compare that the user names are same for all users in `csv_output` and `json_ouput`.
 
-Hints
+#### Tips and Inputs
 1. Use the constructs that we created so far.
 2. Use `\n` as the new line character when ending a line or when joining multiple lines. `os.linesep` is a cross-platform line separator, but used internally by Python when reading content.
 3. You can experiment with `readline`, `readlines`, `writelines` methods of file handle.
 
-### Walk-through of a Sample Solution: Reading and Writing Delimited and JSON Files
+### Walk-through: A Sample Solution
 Let's look at the details of a possible solution. Map to the way you approached the problem and take a note of any new learning or a different way of solving the same problem.
 
 ### Demo and Walk-through: Reading and Writing XML Files
