@@ -13,6 +13,7 @@ The code for demos is contained in `only_demos` directory.
     * requests
     * pexpect (Mac/Linux)
     * selenium
+    * (Optional) ddt - Not a part of problem statement. Used in walk-through of Section 4 long exercise, as add on information.
 3. Other dependencies
     - Chrome Driver executable as per platform and installed browser version should be available.
     - You should have access to a WordPress instance and administrator credentials.
