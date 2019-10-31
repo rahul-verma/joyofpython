@@ -2,14 +2,13 @@ import time
 import re
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 from jopt.project_utils import *
 
 driver_path = get_driver_path("chromedriver")
 driver = webdriver.Chrome(executable_path=driver_path)
 
-driver.get("http://192.168.56.103/wp-admin")
+driver.get("https://www.google.com")
 
 time.sleep(5)
 

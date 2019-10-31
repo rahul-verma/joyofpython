@@ -27,7 +27,7 @@ def launch_driver_process(port):
     cpath = get_driver_path("chromedriver")
     command = [cpath, "--port={}".format(port)]
     try:
-        launch_nonblocking_process(command, str(port))
+        launch_nonblocking_process(command)
     except Exception as e:
         raise Exception("Driver not launched: {}".format(e))
 
@@ -37,7 +37,11 @@ def launch_browser(base_url):
     print(base_url)
     print(payload)
     response = requests.post(base_url, payload)
-    return response.json()['value']['sessionId']
+    response = response.json()
+    if 'sessionId' in response:
+        return response['sessionId']
+    else:
+        return response['value']['sessionId']
 
 
 def go_to_url(session_url, url):
