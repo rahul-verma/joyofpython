@@ -24,7 +24,7 @@ For most common scenarios, knowing the following part of grammar is sufficient:
 ```
 [chars] - Allowed characters
 \w - [a-zA-Z0-9_]    \W  Opposite
-\d - [0=9]           \D  Opposite
+\d - [0-9]           \D  Opposite
 \s - space           \S  Opposite
 .  - anything
 
