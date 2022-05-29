@@ -10,10 +10,6 @@
 - [Hand-On: Get Directory Listing and Print the Output](#hand-on-get-directory-listing-and-print-the-output)
 - [Exercise: Find Process ID(s) Based On Process Name Regex Pattern](#exercise-find-process-ids-based-on-process-name-regex-pattern)
   * [Tips and Inputs](#tips-and-inputs)
-- [Hands-On (For Mac-Linux) and Demo-Only for Windows: Parent in Non-Blocking Mode using `pexpect` Module](#hands-on-for-mac-linux-and-demo-only-for-windows-parent-in-non-blocking-mode-using-pexpect-module)
-- [Demo and Walk-through: Automating Chrome using requests, JSON Wire Protocol and chromedriver](#demo-and-walk-through-automating-chrome-using-requests-json-wire-protocol-and-chromedriver)
-  * [Critical Information about Protocol](#critical-information-about-protocol)
-  * [Tips and Inputs](#tips-and-inputs-1)
 
 ### Understanding Regular Expressions
 
