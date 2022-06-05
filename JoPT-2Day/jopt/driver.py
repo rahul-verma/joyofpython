@@ -17,8 +17,11 @@ limitations under the License.
 
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 from jopt.project_utils import *
 
@@ -39,9 +42,11 @@ class WebAutomator:
         return self.__wait
 
     def __launch(self):
-        driver_path = get_driver_path("chromedriver")
-        self.__driver = webdriver.Chrome(executable_path=driver_path)
-        self.__wait = WebDriverWait(self.driver, 60)
+        driver_path = ChromeDriverManager().install()
+        self.svc = Service(driver_path)
+        self.svc.start()
+        self.__driver = webdriver.Remote(self.svc.service_url)
+        self.__wait = WebDriverWait(self.driver,30)
 
     def quit(self):
         self.__driver.quit()

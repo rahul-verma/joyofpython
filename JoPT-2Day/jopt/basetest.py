@@ -53,7 +53,7 @@ class BaseTest(unittest.TestCase):
     def login_with_valid_creds(self, user_name, password):
         self.__fill_login_form(user_name, password)
         try:
-            self.automator.wait_until_present(By.XPATH, "//*[text()='WordPress News']")
+            self.automator.wait_until_present(By.XPATH, "//*[text()='Site Health Status']")
         except Exception as e:
             raise AssertionError("Login not successful: {}".format(e))
 

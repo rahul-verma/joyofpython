@@ -30,7 +30,7 @@ class LoginTest(BaseTest):
         self.logout()
 
     @data(
-        ('anything', 'any_pass', 'Invalid username'),
+        ('anything', 'any_pass', 'If you are unsure of your username'),
         ('user', 'wrong_pass', r'The password you entered for the username {} is incorrect')
     )
     def test_invalid_login(self, data):

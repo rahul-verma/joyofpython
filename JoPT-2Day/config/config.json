@@ -1,5 +1,5 @@
 {
-  "wp_url" : "http://192.168.56.103/wp-admin",
+  "wp_url" : "http://18.141.139.187/wp-admin",
   "wp_user" : "user",
   "wp_pwd" : "bitnami"
 }

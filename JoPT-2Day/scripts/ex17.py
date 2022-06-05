@@ -2,11 +2,18 @@ import time
 import re
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 from jopt.project_utils import *
 
-driver_path = get_driver_path("chromedriver")
-driver = webdriver.Chrome(executable_path=driver_path)
+driver_path = ChromeDriverManager().install()
+svc = Service(driver_path)
+svc.start()
+driver = webdriver.Remote(svc.service_url)
 
 driver.get("https://www.google.com")
 
